@@ -33,6 +33,7 @@ export const createUser = async (req, res) => {
     delete userWithoutPassword.password;
 
     const token = jwt.sign({ userId: savedUser._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    console.log("dummy")
 
     res.status(201).json({message:"User Created Successfully", user: userWithoutPassword, token });
   } catch (error) {
